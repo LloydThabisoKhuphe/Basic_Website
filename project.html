@@ -1,291 +1,718 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Project : CampusMobi</title>
+
+    <title>CampusMobi | Team Project</title>
+
     <style>
-        * {
-            
+       * {
             margin: 0;
             padding: 0;
-            background-color: #c4daf2;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
         }
         body {
-            background-color: #e8f4f8;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #222;
             line-height: 1.6;
-            color: #333;
         }
- 
+
+        nav {
+            background: #111827;
+            color: white;
+
+            padding: 15px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+
         .container {
-            
-            margin: 0 auto;
-            padding: 30px 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
+            width: 90%;
+            max-width: 1100px;
+
+            margin: 40px auto;
+
+            padding: 40px;
+
+            background: white;
+
+            border-radius: 15px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
- 
-        h1 {
-            color: #0066cc;
+
+        .hero {
             text-align: center;
-            margin-bottom: 10px;
-            font-size: 2.5em;
+
+            padding: 20px 10px 35px;
         }
- 
+
+        .hero h1 {
+            font-size: 42px;
+
+            color: #111827;
+
+            margin-bottom: 10px;
+        }
+
         .subtitle {
-            text-align: center;
+            color: #2563eb;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+        .hero-description {
+            max-width: 750px;
+
+            margin: 15px auto 0;
+
             color: #666;
-            margin-bottom: 30px;
-            font-style: italic;
         }
- 
-        hr {
-            border: none;
-            height: 2px;
-            background-color: #0066cc;
-            margin: 30px 0;
+
+        .section {
+            margin-top: 35px;
+
+            padding: 30px;
+
+            background: #f9fafb;
+
+            border-radius: 12px;
+
+            border-left: 5px solid #2563eb;
+
+            transition: 0.3s;
         }
- 
-        h2 {
-            color: #004499;
-            margin-top: 30px;
+
+        .section:hover {
+            transform: translateY(-3px);
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .section h2 {
+            color: #111827;
+
             margin-bottom: 15px;
-            font-size: 1.8em;
-            border-bottom: 3px solid #0066cc;
-            padding-bottom: 10px;
+
+            font-size: 26px;
         }
- 
-        h3 {
-            color: #005580;
+
+        .section h3 {
+            color: #2563eb;
+
             margin-top: 20px;
+
             margin-bottom: 10px;
-            font-size: 1.3em;
+
+            font-size: 19px;
         }
- 
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
- 
-        ul, ol {
-            margin-left: 30px;
+
+        .section p {
+            color: #555;
+
             margin-bottom: 15px;
         }
- 
+
+
+        ul,
+        ol {
+            margin-left: 25px;
+        }
+
         li {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+
+            color: #555;
         }
- 
-        .objectives {
-            
-            padding: 15px;
-            margin-bottom: 20px;
+
+        li strong {
+            color: #222;
         }
- 
-        .scope {
-            
-            padding: 15px;
-            margin-bottom: 20px;
+
+
+        .features {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+
+            margin-top: 20px;
         }
- 
+
+        .feature-card {
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            border: 1px solid #e5e7eb;
+
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+
+            color: #2563eb;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+
+            margin-bottom: 0;
+        }
+
+
+        .technologies {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .technology {
+            background: #e0ecff;
+
+            color: #1d4ed8;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
         .timeline {
-            
-            padding: 15px;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
- 
+
+        .timeline-item {
+            padding: 15px 20px;
+
+            margin-bottom: 12px;
+
+            background: white;
+
+            border-radius: 8px;
+
+            border-left: 4px solid #2563eb;
+        }
+
+        .timeline-item strong {
+            color: #2563eb;
+        }
+
+        .table-container {
+            overflow-x: auto;
+
+            margin-top: 20px;
+        }
+
         table {
             width: 100%;
+
             border-collapse: collapse;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(44, 5, 239, 0.1);
-            background-color: #f9f9f9;
-            
+
+            background: white;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
- 
+
         thead {
-            background-color: #199e2f;
-            color: rgb(5, 67, 154);
+            background: #111827;
+
+            color: white;
         }
- 
+
         th {
             padding: 15px;
+
             text-align: left;
+
             font-weight: bold;
-            border: 1px solid #004499;
         }
- 
+
         td {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
+            padding: 13px 15px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            color: #555;
         }
- 
+
         tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background: #f9fafb;
         }
- 
+
         tbody tr:hover {
-            background-color: #e8f4f8;
-            transition: background-color 0.3s ease;
+            background: #e8f1ff;
+
+            transition: 0.2s;
         }
+
+        .status {
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding: 7px 15px;
+
+            background: #dcfce7;
+
+            color: #166534;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
  
-        .footer {
-            text-align: center;
+
+        footer {
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #0066cc;
-            color: #666;
-            font-size: 0.9em;
+
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            border-radius: 10px;
         }
+
+        footer p {
+            margin: 0;
+
+            color: #d1d5db;
+
+            font-size: 14px;
+        }
+ 
+
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .container {
+                width: 95%;
+
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+
     </style>
+
 </head>
-<body>
-    <div class="container">
-        
-        <h1>CampusMobi</h1>
-        <p class="subtitle">web-based campus assistant application designed for students at IWS </p>
- 
-        <hr>
- 
-        
-        <h2>Project Overview</h2>
-        <p>
-            This app allows users to view their cards (staff/student) for Accessing so facilities e.g library , study centre and etc , including with the navigation within the campus showing you a map , and it also allows users to uterlize Campus services
-        </p>
- 
-        <hr>
- 
-        
-        <h2>Project Objectives</h2>
-        <div class="objectives">
-            <h3>Key Functions:</h3>
-            <ul>
-                <li><strong>User Authentication</strong>Students can log into the system securely and access their personal dashboard.</li>
-                <li><strong>Dashboard</strong> A central dashboard allows users to easily navigate between all system features.</li>
-                <li><strong>Virtual Student Card</strong> A digital student card is provided within the system. It displays student details along with a QR code that can be used for identification purposes when accessing campus facilities.</li>
-                <li><strong>Calendar</strong> The system provides a calendar where students can:
-                    View their academic schedule,
-                    Manage events such as classes</li>
-                <li><strong>Schedule Notifications</strong> Notifications are generated based on calendar events to:
-
-                    Remind students of upcoming classes,
-                    Help students stay organized
-                </li>
-                <li><strong>Campus Maps</strong> Students can view a simplified campus map or list of locations, including:
-
-                    Lecture halls,
-                    Library,
-                    Administration offices,
-                    Selecting a location shows basic information to assist with navigation.</li>
-            </ul>
+<body>  
+  <nav>
+        <div class="nav-logo">
+            CampusMobi
         </div>
- 
-        <hr>
- 
-        
-        <h2>Project Scope</h2>
-        <div class="scope">
+        <ul class="nav-links">
+          <li>
+              <a href="240746708.html">Home</a>
+            </li>
+            <li>
+                <a href="project.html">Project</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container" id="project">
+        <section class="hero">
+            <h1>CampusMobi</h1>
+            <p class="subtitle">
+                Team Project — Campus Assistant Application
+            </p>
+            <p class="hero-description">
+                A web-based campus assistant application designed
+                to help university students access campus services,
+                manage their academic information, and navigate
+                their campus more efficiently.
+            </p>
+            <span class="status">
+                Team Development Project
+            </span>
+        </section>
+
+        <section class="section">
+
+            <h2>Project Overview</h2>
+
+            <p>
+                CampusMobi is a campus assistant application
+                designed to provide students with convenient
+                access to important university services and
+                information from one platform.
+            </p>
+
+            <p>
+                The application brings together features such as
+                digital student identification, campus navigation,
+                academic schedules, notifications, and campus
+                services.
+            </p>
+
+        </section>
+
+        <section class="section">
+
+            <h2>Project Objectives</h2>
+
+            <p>
+                The main objective of CampusMobi is to create a
+                centralized digital platform that improves the
+                student experience on campus.
+            </p>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>User Authentication</h3>
+                    <p>
+                        Allows students to securely log into the
+                        application and access their personal
+                        information and services.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3>Student Dashboard</h3>
+                    <p>
+                        Provides a central location where students
+                        can access the different features available
+                        within CampusMobi.
+                    </p>
+                </div>
+                <div class="feature-card">
+
+                    <h3>Virtual Student Card</h3>
+                    <p>
+                        Provides students with a digital student
+                        card containing their details and a QR code
+                        for identification and access to campus
+                        facilities.
+                    </p>
+                </div>
+                <div class="feature-card">
+
+                    <h3>Academic Calendar</h3>
+                    <p>
+                        Allows students to view their academic
+                        schedule and manage important events such
+                        as classes and activities.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <h3>Notifications</h3>
+                    <p>
+                        Provides reminders about upcoming classes
+                        and other important academic events.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <h3>Campus Navigation</h3>
+                    <p>
+                        Provides students with a campus map and
+                        information about locations such as lecture
+                        halls, libraries and administrative offices.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+        <section class="section">
+            <h2>Project Scope</h2>
             <h3>What's Included:</h3>
             <ul>
-                <li>User registration and authentication system</li>
-                <li>Course creation and management module</li>
-                <li>Assignment submission and grading system</li>
-                <li>Discussion forums and messaging features</li>
-                <li>Progress tracking and reporting dashboards</li>
-                <li>Administrative tools for system management</li>
+                <li>
+                    User registration and authentication
+                </li>
+                <li>
+                    Student and staff virtual identification cards
+                </li>
+                <li>
+                    Campus map and navigation
+                </li>
+                <li>
+                    Academic calendar and scheduling
+                </li>
+                <li>
+                    Schedule-based notifications
+                </li>
+                <li>
+                    Campus services and information
+                </li>
+                <li>
+                    Student communication and forum features
+                </li>
+                <li>
+                    User profiles and account management
+                </li>
             </ul>
-        </div>
- 
-        <hr>
- 
-       
-        <h2>Project Timeline</h2>
-        <div class="timeline">
-            <h3>Development Phases:</h3>
-            <ol>
-                <li><strong>Phase 1 (Week 1-2):</strong> Planning and Design - Requirements analysis and UI/UX design</li>
-                <li><strong>Phase 2 (Week 3-4):</strong> Frontend Development - Build responsive user interfaces</li>
-                <li><strong>Phase 3 (Week 5-6):</strong> Backend Development - Create database and server logic</li>
-                <li><strong>Phase 4 (Week 7):</strong> Integration and Testing - Combine frontend and backend components</li>
-                <li><strong>Phase 5 (Week 8):</strong> Deployment and Documentation - Launch and create user guides</li>
-            </ol>
-        </div>
- 
-        <hr>
- 
-        
-        <h2>Technologies Used</h2>
-        <ul>
-            <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, React.js</li>
-            <li><strong>Backend:</strong> Node.js, Express.js</li>
-            <li><strong>Database:</strong> MongoDB</li>
-            <li><strong>Authentication:</strong> JWT (JSON Web Tokens)</li>
-            <li><strong>Version Control:</strong> Git & GitHub</li>
-            <li><strong>Deployment:</strong> Vesel</li>
-        </ul>
- 
-        <hr>
- 
-        
-        <h2>Team Members</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Student Number</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Lloyd Thabiso Khuphe</td>
-                    <td>240746708</td>
-                    
-                </tr>
-                <tr>
-                    <td>Rialivhua Kurhula Makhado</td>
-                    <td>240819640</td>
-                    
-                </tr>
-                <tr>
-                    <td>Siphokuhle Wellem</td>
-                    <td>220485011</td>
-                    
-                </tr>
-                <tr>
-                    <td>Ayanda Dunywa</td>
-                    <td>231031963</td>
-                    
-                </tr>
-                <tr>
-                    <td>Khanya mzila</td>
-                    <td>218256019</td>
-                    
-                </tr>
-                <tr>
-                    <td>Thabiso Besutfu Nkambule</td>
-                    <td>240875184</td>
-                    
-                </tr>
-                <tr>
-                    <td>Sikelela Mavaba</td>
-                    <td>230859399</td>
-                    
-                </tr>
-            </tbody>
-        </table>
- 
-        <hr>
- 
-        
-        <div class="footer">
-            <p>&copy; 2024 CampusMobi web Application . All rights reserved.</p>
-            
-        </div>
-    </div>
+        </section>
+
+        <section class="section">
+            <h2>Project Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                  <strong>Phase 1 — Week 1–2</strong>
+                    <p>
+                        Planning and Design — Requirements analysis,
+                        system planning and UI/UX design.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <strong>Phase 2 — Week 3–4</strong>
+                    <p>
+                        Frontend Development — Building the
+                        responsive user interfaces and application
+                        components.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <strong>Phase 3 — Week 5–6</strong>
+                    <p>
+                        Backend Development — Developing server
+                        logic, APIs and database functionality.
+                </p>
+                </div>
+
+                <div class="timeline-item">
+                    <strong>Phase 4 — Week 7</strong>
+                    <p>
+                        Integration and Testing — Connecting the
+                        frontend and backend and testing application
+                        functionality.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <strong>Phase 5 — Week 8</strong>
+                    <p>
+                        Deployment and Documentation — Deploying
+                        the application and preparing documentation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+
+            <h2>Technologies Used</h2>
+            <p>
+                The project uses modern web development technologies
+                to create a responsive and scalable application.
+            </p>
+            <div class="technologies">
+
+                <span class="technology">HTML5</span>
+
+                <span class="technology">CSS3</span>
+
+                <span class="technology">JavaScript</span>
+
+                <span class="technology">React.js</span>
+
+                <span class="technology">Node.js</span>
+
+                <span class="technology">Express.js</span>
+
+                <span class="technology">MongoDB</span>
+
+                <span class="technology">JWT</span>
+
+                <span class="technology">Git</span>
+
+                <span class="technology">GitHub</span>
+
+                <span class="technology">Vercel</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Team Members</h2>
+            <p>
+                CampusMobi was developed as a collaborative team
+                project.
+            </p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Student Number</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Lloyd Thabiso Khuphe
+                            </td>
+                            <td>
+                                240746708
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Rialivhua Kurhula Makhado
+                            </td>
+                            <td>
+                                240819640
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Siphokuhle Wellem
+                            </td>
+                            <td>
+                                220485011
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Ayanda Dunywa
+                            </td>
+                            <td>
+                                231031963
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Khanya Mzila
+                            </td>
+                            <td>
+                                218256019
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Thabiso Besutfu Nkambule
+                            </td>
+                            <td>
+                                240875184
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Sikelela Mavaba
+                            </td>
+                            <td>
+                                230859399
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>
+            &copy; 2026 CampusMobi | Team Development Project
+        </p>
+    </footer>
+
+
 </body>
+
 </html>
+

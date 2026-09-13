@@ -1,102 +1,570 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Interests</title>
-   
+
+    <title>Career Interests | Software Developer</title>
+
+    <style>
+        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        
+
+        nav {
+            background: #111827;
+            color: white;
+            padding: 15px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        
+
+        .mute-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+            background: #2563eb;
+            color: white;
+
+            border: none;
+            border-radius: 50px;
+
+            padding: 12px 18px;
+
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+            transition: 0.3s;
+
+            z-index: 2000;
+        }
+
+        .mute-button:hover {
+            background: #1d4ed8;
+            transform: scale(1.05);
+        }
+
+        
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        
+
+        .hero {
+            background: white;
+            padding: 40px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .hero .career {
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .student-number {
+            margin-top: 10px;
+            color: #666;
+        }
+
+        
+
+        .profile-section {
+            background: white;
+
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+            margin-bottom: 30px;
+        }
+
+        .profile-image img {
+            width: 150px;
+            height: 150px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 5px solid #2563eb;
+        }
+
+        .profile-info h2 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .profile-info p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .section {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h3 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .section p {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            margin-top: 15px;
+        }
+
+        .skill {
+            background: #e0ecff;
+            color: #1d4ed8;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        
+
+        .links-section {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-button {
+            display: inline-block;
+
+            background: #2563eb;
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .link-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        
+
+        footer {
+            margin-top: 40px;
+
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            border-radius: 10px;
+        }
+
+        
+
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .links-section {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
     
-    <audio autoplay style="display: none;">
+
+    <nav>
+
+        <div class="nav-logo">
+            My Portfolio
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="240746708.html">Home</a>
+            </li>
+
+            <li>
+                <a href="project.html">Project</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    
+
+    <audio id="backgroundMusic" autoplay loop>
         <source src="music/AUD-20191004-WA0010.mp3" type="audio/mpeg">
         
     </audio>
 
-    <div class="container">
-        <header>
+
+   
+
+    <button id="muteButton" class="mute-button">
+         Mute
+    </button>
+
+
+    
+
+    <main class="container" id="home">
+
+        
+
+        <section class="hero">
+
             <h1>Career Interests</h1>
-            <p>Software Development & Web Development</p>
-            <p >Student Number: 240746708</p>
-        </header>
+
+            <p class="career">
+                Software Development & Web Development
+            </p>
+
+            <p class="student-number">
+                Student Number: 240746708
+            </p>
+
+        </section>
+
+
+       
 
         <section class="profile-section">
+
             <div class="profile-image">
-                
-                <img class="profile_pic" src="images/WhatsApp Image 2026-09-11 at 4.32.22 PM.jpeg" alt="Profile Photo">
-                
-                <style>
-                    .profile_pic {
-                        width: 80px;
-                        height: 80px;
-                        border-radius: 20%;
-                        
-                    }
-                </style>
+
+                <img
+                    src="images/WhatsApp Image 2026-09-11 at 4.32.22 PM.jpeg"
+                    alt="Profile Photo"
+                >
+
             </div>
 
 
             <div class="profile-info">
+
                 <h2>Welcome!</h2>
+
                 <p>
-                    Hello! I'm a passionate software developer and Web Developer with a keen interest in 
-                    building innovative solutions and exploring the latest technologies in the digital landscape.
+                    Hello! I'm a passionate software developer and
+                    web developer with a keen interest in building
+                    innovative solutions and exploring the latest
+                    technologies in the digital landscape.
                 </p>
+
                 <p>
-                    This portfolio showcases my journey, skills, and projects in software development and Web Development.
+                    This portfolio showcases my journey, skills,
+                    interests, and projects in software development
+                    and web development.
                 </p>
+
             </div>
+
         </section>
 
+
         
+
         <div class="content">
+
             
+
             <section class="section">
+
                 <h3>About My Career Interests</h3>
+
                 <p>
-                    I am passionate about Software Development and Web Development. My career interests span across:
+                    I am passionate about Software Development and
+                    Web Development. My career interests include:
                 </p>
+
                 <p>
-                    <strong>• Full-Stack Web Development:</strong> Creating responsive, user-friendly applications using modern frameworks and technologies.
+                    <strong>Full-Stack Web Development:</strong>
+                    Creating responsive, user-friendly applications
+                    using modern frameworks and technologies.
                 </p>
+
                 <p>
-                    <strong>• Cloud Computing & Infrastructure:</strong> Deploying and managing scalable cloud solutions using platforms like AWS, Azure, and Google Cloud.
+                    <strong>Cloud Computing & Infrastructure:</strong>
+                    Deploying and managing scalable cloud solutions
+                    using platforms such as AWS, Azure, and Google Cloud.
                 </p>
-                
+
             </section>
+
+
+            <section class="section">
+
+                <h3>Professional Links & Profiles</h3>
+
+                <p>
+                    Connect with me on these professional platforms:
+                </p>
+
+                <div class="links-section">
+
+                    <a
+                        href="https://www.linkedin.com/in/lloyd-thabiso-khuphe-151437363"
+                        class="link-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn
+                    </a>
+
+                    <a
+                        href="https://github.com/LloydThabisoKhuphe"
+                        class="link-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- SKILLS -->
+
+            <section class="section">
+
+                <h3>Key Skills & Technologies</h3>
+
+                <p>
+                    My technical interests and skills include:
+                </p>
+
+                <div class="skills">
+
+                    <span class="skill">Python</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">Java</span>
+                    <span class="skill">C++</span>
+                    <span class="skill">React</span>
+                    <span class="skill">Node.js</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">Docker</span>
+                    <span class="skill">AWS</span>
+                    <span class="skill">Git</span>
+                    <span class="skill">Agile</span>
+
+                </div>
+
+            </section>
+
 
             
-            <section class="section">
-                <h3>Professional Links & Profiles</h3>
-                <p>Connect with me on these professional platforms:</p>
-                <div class="links-section">
-                    
-                    <a href="https://www.linkedin.com/in/lloyd-thabiso-khuphe-151437363" class="link-button" target="_blank">LinkedIn        |
-                    </a>
-                    
-                    
-                    <a href="https://github.com/LloydThabisoKhuphe" class="link-button" target="_blank"> GitHub  
-                    </a>
-                    
-                </div>
+
+            <section class="section" id="projects">
+
+                <h3>Projects & Experience</h3>
+
+                <p>
+                    I have gained practical experience through
+                    internship and software development projects.
+                </p>
+
+                <p>
+                    During my internship at Ifinity Cybertech,
+                    I participated in the development of mobile
+                    applications such as:
+                </p>
+
+                <p>
+                    <strong>Fix It Yourself:</strong>
+                    A mobile application focused on helping users
+                    find repair guides and solutions.
+                </p>
+
+                <p>
+                    <strong>WSU Navigator:</strong>
+                    A campus navigation application designed to
+                    help students and staff navigate the university.
+                </p>
+
             </section>
 
-           
-            <section class="section">
-                <h3>Key Skills & Technologies</h3>
-                <p>
-                    My expertise includes: Python, JavaScript, Java, C++, React, Node.js, SQL, Docker, 
-                    AWS, Git, and Agile methodologies. I'm committed to continuous learning and staying 
-                    updated with industry trends. I have took part as an Intern at Ifinity cibertech company , 
-                    building mobile applications such as Fix it yourself and WSU navigator App.
-                </p>
-            </section>
         </div>
 
-        <footer>
-            <p>&copy; 2024 Professional Portfolio | Student number: 240746708</p>
-            
-        </footer>
-    </div>
+    </main>
+
+    <footer>
+
+        <p>
+            &copy; 2026 Professional Portfolio |
+            Student Number: 240746708
+        </p>
+
+    </footer>
+
+    <script>
+        const music = document.getElementById("backgroundMusic");
+        const muteButton = document.getElementById("muteButton");
+
+        muteButton.addEventListener("click", function () {
+
+            if (music.muted) {
+
+                // Unmute
+                music.muted = false;
+
+                muteButton.textContent = " Mute";
+
+            } else {
+
+                // Mute
+                music.muted = true;
+
+                muteButton.textContent = " Unmute";
+
+            }
+
+        });
+
+    </script>
+
 </body>
+
 </html>
